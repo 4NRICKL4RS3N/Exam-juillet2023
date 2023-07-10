@@ -18,7 +18,7 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/page.css" rel="stylesheet">
 
 </head>
 
@@ -27,7 +27,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">J'aime</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">Regime</a></h1>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -53,22 +53,18 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
-      <a href="#appointment" class="appointment-btn scrollto">Se connecter</a>
+      <a href="#" class="appointment-btn scrollto">Se déconnecter</a>
 
     </div>
   </header>
 
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Bienvenu sur Regime</h1>
-      <h2>Perdez ou gagnez du poids!</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section>
 
   <main id="main">
 
-    <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
 
@@ -77,16 +73,14 @@
             <div class="content">
               <h3>Pourquoi choisir Regime?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
+                Notre site offre une solution complète et pratique pour les personnes cherchant à adopter un mode de vie sain et à atteindre leurs objectifs de perte ou de maintien de poids. 
+                En choisissant notre plateforme, vous bénéficiez d'une expérience unique et personnalisée qui vous guide tout au long de votre parcours de régime.</p>
               <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                <a href="#" class="more-btn">En apprendre plus <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
+          <div class="col-lg-8 d-flex align-items-stretch">          
               <div class="row">
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
@@ -98,7 +92,6 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 
@@ -119,27 +112,23 @@
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="taille" class="form-control" name="taille" id="taille" placeholder="Votre poids actuel" data-rule="taille" data-msg="S'il vous plait entrez un poids valide">
+              <input type="number" class="form-control" name="taille" id="taille" placeholder="Votre poids actuel" data-rule="taille" data-msg="S'il vous plait entrez un poids valide">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="poids" class="form-control" name="poids" id="poids" placeholder="Le poids que voulez gagner" data-rule="poids">
+              <input type="number" class="form-control" name="poids" id="poids" placeholder="Le poids que voulez gagner" data-rule="poids">
               <div class="validate"></div>
             </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="poids" class="form-control" name="poids" id="poids" placeholder="Le poids que vous voulez perdre" data-rule="poids">
+            <label for="poids">
+              <div class="col-md-4 form-group mt-3 mt-md-0"></div>
+              <input type="number" class="form-control" name="poids" id="poids" placeholder="Le poids que vous voulez perdre" data-rule="poids">
               <div class="validate"></div>
-            </div>
+            </label>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
-              <label for="date">Debut du régime :</label>
-              <input type="date" name="date" id="date" placeholder="Date debut" data-rule="minlen:4" data-msg="S'il vous plait entrez une date valide">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <label for="date">Fin du régime :</label>
-              <input type="date" name="date" id="date" placeholder="Date fin" data-rule="minlen:4" data-msg="S'il vous plait entrez une date valide">
+              <label for="date">Durée du régime :</label>
+              <input type="number" name="date" id="date" placeholder="Fixez le nombre de jour" data-rule="minlen:4">
               <div class="validate"></div>
             </div>
           </div>
@@ -159,7 +148,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>"Régime-Santé: Trouvez l'équilibre entre plaisir et bien-être !"</p>
         </div>
       </div>
 
@@ -171,19 +160,13 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Andoharanofotsy</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>regime@gmail.com</p>
               </div>
 
             </div>
