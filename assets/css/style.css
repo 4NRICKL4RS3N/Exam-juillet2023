@@ -20,6 +20,10 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.8); /* Opacité de 0.8 pour la carte */
   }
+
+.error {
+  color: red;
+}
   
   .card-header {
     padding: 2.5rem;
