@@ -53,7 +53,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
-      <a href="#" class="appointment-btn scrollto">Se connecter</a>
+      <a href="#" class="appointment-btn scrollto">Se déconnecter</a>
 
     </div>
   </header>
@@ -73,11 +73,10 @@
             <div class="content">
               <h3>Pourquoi choisir Regime?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
+                Notre site offre une solution complète et pratique pour les personnes cherchant à adopter un mode de vie sain et à atteindre leurs objectifs de perte ou de maintien de poids. 
+                En choisissant notre plateforme, vous bénéficiez d'une expérience unique et personnalisée qui vous guide tout au long de votre parcours de régime.</p>
               <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                <a href="#" class="more-btn">En apprendre plus <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div>
@@ -113,27 +112,23 @@
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="taille" class="form-control" name="taille" id="taille" placeholder="Votre poids actuel" data-rule="taille" data-msg="S'il vous plait entrez un poids valide">
+              <input type="number" class="form-control" name="taille" id="taille" placeholder="Votre poids actuel" data-rule="taille" data-msg="S'il vous plait entrez un poids valide">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="poids" class="form-control" name="poids" id="poids" placeholder="Le poids que voulez gagner" data-rule="poids">
+              <input type="number" class="form-control" name="poids" id="poids" placeholder="Le poids que voulez gagner" data-rule="poids">
               <div class="validate"></div>
             </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="poids" class="form-control" name="poids" id="poids" placeholder="Le poids que vous voulez perdre" data-rule="poids">
+            <label for="poids">
+              <div class="col-md-4 form-group mt-3 mt-md-0"></div>
+              <input type="number" class="form-control" name="poids" id="poids" placeholder="Le poids que vous voulez perdre" data-rule="poids">
               <div class="validate"></div>
-            </div>
+            </label>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
-              <label for="date">Debut du régime :</label>
-              <input type="date" name="date" id="date" placeholder="Date debut" data-rule="minlen:4" data-msg="S'il vous plait entrez une date valide">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <label for="date">Fin du régime :</label>
-              <input type="date" name="date" id="date" placeholder="Date fin" data-rule="minlen:4" data-msg="S'il vous plait entrez une date valide">
+              <label for="date">Durée du régime :</label>
+              <input type="number" name="date" id="date" placeholder="Fixez le nombre de jour" data-rule="minlen:4">
               <div class="validate"></div>
             </div>
           </div>
