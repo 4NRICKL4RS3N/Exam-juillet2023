@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(to bottom right, #4894c7, #73c4be);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: fixed;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    margin-top: 150px;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+}
+  .card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Opacité de 0.8 pour la carte */
+  }
+  
+  .card-header {
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .card-header img {
+    width: 48px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .form-control {
+    border: 1px solid transparent; /* Suppression de la bordure des champs de saisie */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.4); /* Opacité de 0.4 pour les champs de saisie */
+  }
+  
+  .btn {
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  
