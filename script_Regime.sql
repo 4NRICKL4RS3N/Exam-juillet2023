@@ -73,10 +73,10 @@ create table constitution_regime
     foreign key (id_Plat) references plat (id_Plat)
 );
 
-insert into user values(null,'Gasy','gasy@gmail.com',1234,1);
-insert into user values(null,'Nandraina','nandraina@gmail.com',1234,1);
-insert into user values(null,'Anrick','anrick@gmail.com',1234,1);
-insert into user values(null,'Paul','paul@gmail.com',0000,0);
+insert into user values(null,'Gasy','gasy@gmail.com','1234',1);
+insert into user values(null,'Nandraina','nandraina@gmail.com','1234',1);
+insert into user values(null,'Anrick','anrick@gmail.com','1234',1);
+insert into user values(null,'Paul','paul@gmail.com','0000',0);
 
 insert into plat values(null,'Soupe tomate');
 insert into plat values(null,'Salade de pate');

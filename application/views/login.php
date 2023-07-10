@@ -18,11 +18,6 @@
               </div>
               <div class="card-body">
                 <form>
-                    <div class="form-group">
-                        <label for="username"><i class="fas fa-user"></i></label>
-                        <input type="text" class="form-control" id="username" placeholder="Entrez votre nom">
-                      </div>
-                      
                       <div class="form-group">
                         <label for="email"><i class="fas fa-envelope"></i></label>
                         <input type="text" class="form-control" id="email" placeholder="Entrez votre adresse email">
