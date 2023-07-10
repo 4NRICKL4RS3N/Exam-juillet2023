@@ -25,25 +25,50 @@ class User extends CI_Controller {
 
 	public function login()
 	{
+
 		$this->load->model('model_user');
-		$mail = $this->input->post('email');
-		$mdp = $this->input->post('mdp');
-		
-		if ($this->model_user->checkLogin($mail, $mdp) === true) {
-			$id = $this->model_user->getIdByMail($mail);
-			$this->session->set_userdata('mail',$mail);
-			$this->session->set_userdata('id',$id['idUser']);
-			redirect('accueil/index');
+		echo $mail = $this->input->post('email');
+		echo $mdp = $this->input->post('mdp');
+
+		$user = $this->model_user->getUserByMail($mail);
+		if ($user != null) {
+			if ($this->model_user->checkAdmin($user)) {
+				if ($this->model_user->checkMdp($user, $mdp)) {
+					$this->session->set_userdata('user', $user);
+					redirect('user/login_admin');
+				} else {
+					redirect('user/login_error');
+				}
+			} else {
+				if ($this->model_user->checkMdp($user, $mdp)) {
+					$this->session->set_userdata('user', $user);
+					redirect('user/login_success');
+				} else {
+					redirect('user/login_error');
+				}
+			}
 		} else {
-			redirect('user/login_error');
+			redirect('user/login_error_account');
 		}
+
+	}
+
+	public function login_error_account() {
+		$data = array(
+			'error' => 'Compte non existant'
+		);
+		$this->load->view('login', $data);
 	}
 
 	public function login_error() {
 		$data = array(
-			'error' => 'Email ou mot de passe incorect'
+			'error' => 'Mot de passe incorect'
 		);
 		$this->load->view('login', $data);
+	}
+
+	public function login_admin() {
+		$this->load->view('back-office/index');
 	}
 
 	public function login_success() {
