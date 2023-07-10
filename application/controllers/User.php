@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class User extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,5 +21,32 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('login');	
+	}
+
+	public function login()
+	{
+		$this->load->model('model_user');
+		$mail = $this->input->post('email');
+		$mdp = $this->input->post('mdp');
+		
+		if ($this->model_user->checkLogin($mail, $mdp) === true) {
+			$id = $this->model_user->getIdByMail($mail);
+			$this->session->set_userdata('mail',$mail);
+			$this->session->set_userdata('id',$id['idUser']);
+			redirect('accueil/index');
+		} else {
+			redirect('user/login_error');
+		}
+	}
+
+	public function login_error() {
+		$data = array(
+			'error' => 'Email ou mot de passe incorect'
+		);
+		$this->load->view('login', $data);
+	}
+
+	public function login_success() {
+		$this->load->view('page');
 	}
 }

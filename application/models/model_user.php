@@ -1,12 +1,21 @@
 <?php
 if(! defined('BASEPATH')) exit('No direct script acces allowed');
 
-class Model_login extends CI_Model {
+class Model_user extends CI_Model {
 
     public function searchUser($mailUser) {
         $sql = "select * from user where mail = %s";
         $sql = sprintf($sql, $this->db->escape($mailUser));
         $query = $this->db->query($sql);
+        $result = $query->row_array();
+        return $result;
+    }
+
+    public function getIdByMail($mail)
+    {
+        $req="select id_user from user where mail=%s";
+        $req=sprintf($req,$this->db->escape($mail));
+        $query = $this->db->query($req);
         $result = $query->row_array();
         return $result;
     }
@@ -22,13 +31,7 @@ class Model_login extends CI_Model {
         return 0;
     }
 
-    public function getUsers() {
-        $sql = "select * from user";
-        $query = $this->db->query($sql);
-        $result = $query->result_array();
-        return $result;
-    }
-
+    
     public function getUsersById($idUser) {
         $sql = "select * from user where id_user = %s";
         $sql = sprintf($sql, $this->db->escape($idUser));
@@ -36,16 +39,12 @@ class Model_login extends CI_Model {
         $result = $query->row_array();
         return $result;
     }
-
+    
     public function checkLogin($mail , $mdp)
     {
-        // var_dump($mail);
-        // var_dump($mdp);
-        $listUser = $this->model_login->getUsers();
-        // var_dump($listUser);
+        $listUser = $this->getUsers();
         $result = false;
         for ($i=0; $i < count($listUser); $i++) {
-            // var_dump($listUser[$i]);
             if ($listUser[$i]['mdp'] == $mdp && $listUser[$i]['mail'] == $mail)  
             {
                 $result = true;
@@ -54,9 +53,16 @@ class Model_login extends CI_Model {
         return $result;
     }
 
+    public function getUsers() {
+        $sql = "select * from user";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
+    }
+    
     public function loadAdmin($mail , $mdp)
     {
-        $listUser = $this->model_login->getUsers();
+        $listUser = $this->model_user->getUsers();
         for ($i=0; $i < count($listUser); $i++) { 
             if ($listUser[$i]['mdp'] == $mdp && $listUser[$i]['mail'] == $mail && $listUser[$i]['status'] == '1')
             {
