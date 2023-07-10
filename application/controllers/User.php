@@ -72,6 +72,6 @@ class User extends CI_Controller {
 	}
 
 	public function login_success() {
-		$this->load->view('page');
+		$this->load->view('accueil');
 	}
 }
