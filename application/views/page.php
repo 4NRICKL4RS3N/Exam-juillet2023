@@ -18,7 +18,7 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/page.css" rel="stylesheet">
 
 </head>
 
@@ -27,7 +27,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">J'aime</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">Regime</a></h1>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -53,22 +53,18 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
-      <a href="#appointment" class="appointment-btn scrollto">Se connecter</a>
+      <a href="#" class="appointment-btn scrollto">Se connecter</a>
 
     </div>
   </header>
 
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Bienvenu sur Regime</h1>
-      <h2>Perdez ou gagnez du poids!</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section>
 
   <main id="main">
 
-    <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
 
@@ -85,8 +81,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
+          <div class="col-lg-8 d-flex align-items-stretch">          
               <div class="row">
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
@@ -98,7 +93,6 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 
@@ -159,7 +153,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>"Régime-Santé: Trouvez l'équilibre entre plaisir et bien-être !"</p>
         </div>
       </div>
 
@@ -171,19 +165,13 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Andoharanofotsy</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>regime@gmail.com</p>
               </div>
 
             </div>
