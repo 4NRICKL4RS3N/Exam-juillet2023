@@ -44,15 +44,6 @@ create table plat_ingr
     foreign key (id_Ingr) references ingredient (id_Ingr)
 );
 
-create table apport_plat
-(
-    id_AP int auto_increment primary key,
-    id_Plat int,
-    apport_total double,
-    prix double,
-    foreign key (id_Plat) references plat (id_Plat)
-);
-
 create table regime
 (
     id_Regime int auto_increment primary key,
