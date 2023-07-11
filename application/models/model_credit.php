@@ -22,6 +22,16 @@ class model_credit extends CI_Model {
         return $result;
     }
 
+    // public function getIdByCredit($credit)
+    // {
+    //     $this->load->database();
+    //     $sql = "select id_Credit from credit where valeur = '%s'";
+    //     $sql = sprintf($sql,$this->db->escape($credit));
+    //     $query = $this->db->query($sql);
+    //     $result = $query->row_array();
+    //     return $result;
+    // }
+
     public function insertGestionCredit($id_credit)
     {
         $this->load->database();

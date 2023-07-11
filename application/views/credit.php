@@ -1,3 +1,10 @@
+<!-- <?php
+
+
+    if (!isset($error)) {
+        $error = "";
+    }
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,24 +63,20 @@
           <h2>Choisissez un code</h2>
         </div>
 
-        <form action="#" method="post" role="form" class="php-email-form">
+        <form action="<?php echo base_url('credit/credit') ?>" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-4 form-group">
              <select name="code" id="code">
-                <option value="001">001</option>
-                <option value="002">002</option>
-                <option value="003">003</option>
-                <option value="004">004</option>
-                <option value="005">005</option>
+                <?php foreach($credits as $credit) { ?>
+                    <option value="<?php echo $credit['id_Credit'] ?>"><?php echo $credit['valeur'] ?></option>
+                <?php } ?>
              </select>
             </div>
             <div class="col-md-4 form-group">
               <ul>
-                <li>001 - 2 000Ar</li>
-                <li>001 - 3 000Ar</li>
-                <li>001 - 4 000Ar</li>
-                <li>001 - 5 000Ar</li>
-                <li>001 - 6 000Ar</li>
+                <?php foreach($credits as $credit) { ?>
+                    <li><?php echo $credit['id_Credit'] ?> - <?php echo $credit['valeur'] ?></li>
+                <?php } ?>
               </ul>
             </div>
           </div>
