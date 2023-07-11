@@ -22,7 +22,7 @@ class model_credit extends CI_Model {
         return $result;
     }
 
-    public function insertCredit($id_credit)
+    public function insertGestionCredit($id_credit)
     {
         $this->load->database();
         $this->load->library('session');
@@ -54,7 +54,26 @@ class model_credit extends CI_Model {
         $sql = "select * from gestion_credit where id_GC = %s";
         $sql = sprintf($sql, $this->db->escape($id_GC));
         $query = $this->db->query($sql);
-        
+        $result = $query->row_array();
+    }
+
+    public function insertCredit($valeur)
+    {
+        $sql = "insert into credit values(null,%s)";
+        $sql = sprintf($sql, $this->db->escape($valeur));
+        $this->db->query($sql);
+    }
+
+    public function insertCash($id_GC)
+    {
+        $GC = $this->model_credit->getGestionCreditById($id_GC);
+        $id_User = $GC['id_User'];
+        $credit = $this->model_credit->getCreditById($id_User);
+        $djala = $credit['valeur']; 
+        $this->load->database();
+        $sql = "insert into cash values(null,%s,%s)";
+        $sql = sprintf($sql, $this->db->escape($id_User),$this->db->escape($djala));
+        $this->db->query($sql);
     }
 }
 ?>
