@@ -22,7 +22,7 @@
         </nav>
 
         <div class="container">
-            <h3>Portefeuille</h3>
+            <h3>Demande de credit</h3>
         <table class="table">
             <thead>
             <tr>
