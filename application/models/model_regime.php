@@ -12,6 +12,20 @@ class model_regime extends CI_Model
         return $result; 
     }
 
+    public function getConstitutionRegime($idRegime)
+    {
+        $this->load->database();
+        $result = array();
+        // $sql = "select * from constitution_regime where id_regime = ".$idRegime;
+        $sql = "select cr.id_regime,p.plat from constitution_regime cr right join plat p on p.id_plat = cr.id_plat where cr.id_regime=".$idRegime;
+        $query = $this->db->query($sql);
+        $result[] = $query->result_array();
+        $sql = "select cr.id_regime,s.nom,s.quantite from constitution_regime cr right join sport s on s.id_s = cr.id_s where cr.id_regime=".$idRegime;
+        $query = $this->db->query($sql);
+        $result[] = $query->result_array();
+        return $result;
+    }
+
     public function getApportParPlat()
     {
         $this->load->database();
@@ -55,23 +69,6 @@ class model_regime extends CI_Model
         }
         return $somme;
     }
-
-    // public function platParDuree($duree = null,$type)
-    // {
-    //     $listPlat = $this->model_regime->getPlatParType($type);
-    //     $list = array();
-    //     if ($duree != null) {
-    //         for ($i=0; $i < $duree; $i++) { 
-    //             $list[] = $listPlat[$i];
-    //         }
-    //         return $list;
-    //     }else {
-    //         for ($i=0; $i < count($listPlat); $i++) { 
-    //             $list[] = $listPlat[$i];
-    //         }
-    //         return $list;
-    //     }
-    // }
 
     public function getApportSport() 
     {
@@ -132,12 +129,35 @@ class model_regime extends CI_Model
             $regime[1][] = $listSport[$i%count($listSport)];
             // echo "iP=".$i%count($listPlat)."<br>";
             // echo "iS=".$i%count($listSport)."<br>";
-            var_dump($listPlat[$i%count($listPlat)]);
-            var_dump($listSport[$i%count($listSport)]);
             $i++;
         }
-        echo "total=".$total;
+        return $regime;
+    }
+
+    public function getRegimeNextIncrement() {
+        $this->load->database();
+        $sql = "select AUTO_INCREMENT from information_schema.TABLES where TABLE_SCHEMA = 'regime' and TABLE_NAME = 'regime'";
+        $query = $this->db->query($sql);
+        $result = $query->row_array();
+        return $result['AUTO_INCREMENT'];
+    }
+
+    public function insertRegime($lisRegime, $user) {
+        $this->load->database();
+        $increment = $this->model_regime->getRegimeNextIncrement();
+        $sql1 = "insert into regime values(%s, %s, curdate(), date_add(curdate(), interval %s day))";
+        $sql1 = sprintf($sql1, $increment, $user['id_User'], count($lisRegime[0]));
+        $this->db->query($sql1);
         
+        for ($i=0; $i < count($lisRegime[0]); $i++) { 
+            $sql2 = "insert into constitution_regime values (null, %s, %s, %s)";
+            $sql2 = sprintf($sql2, $increment, $lisRegime[0][$i]['id_plat'], 'null');
+            $this->db->query($sql2);
+            $sql2 = "insert into constitution_regime values (null, %s, %s, %s)";
+            $sql2 = sprintf($sql2, $increment, 'null', $lisRegime[1][$i]['id_S']);
+            $this->db->query($sql2);
+        }
+        return $increment;
     }
 
 }

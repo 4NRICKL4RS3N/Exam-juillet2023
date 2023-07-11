@@ -179,6 +179,7 @@ insert into sport values(null,'Jumping',3,30,-2);
 
 create or replace view apportPlatParIngr as 
 select
+    p.id_plat as id_plat,
     p.plat as plat,
     (pi.quantite * i.apport) as apport,
     (pi.quantite * i.pu) as prix
@@ -190,15 +191,9 @@ on p.id_Plat = pi.id_Plat;
 
 create or replace view apportPrixParPlat as
 select
+    id_plat,
     plat,
     sum(apport) as apport,
     sum(prix) as prix
 from apportPlatParIngr
 group by plat;
-
-
-
-
-
-
-
