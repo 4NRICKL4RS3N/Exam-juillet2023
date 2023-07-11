@@ -81,13 +81,14 @@
             </div>
           </div>
           <div class="col-lg-8 d-flex align-items-stretch">          
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
+            <form action="<?php echo base_url('suggestion/suggerer') ?>" method="post">
+            <div class="row">
+              <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <h1>Mon objectif</h1>
-                    <select name="objectif" id="objectif">
-                      <option value="Augmenter">Augmenter mon poids</option>
-                      <option value="Reduire">Réduire mon poids</option>
+                    <select name="type" id="objectif">
+                      <option value="gain">Augmenter mon poids</option>
+                      <option value="perte">Réduire mon poids</option>
                     </select>
                   </div>
                 </div>
@@ -105,104 +106,34 @@
           <h2>Completez le formulaire</h2>
         </div>
 
-        <form action="#" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-4 form-group">
               <input type="text" name="age" class="form-control" id="age" placeholder="Votre age" data-rule="minlen:4" data-msg="S'il vous plait entrez une age valide">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="number" class="form-control" name="taille" id="taille" placeholder="Votre poids actuel" data-rule="taille" data-msg="S'il vous plait entrez un poids valide">
+              <input type="number" class="form-control" name="poids" id="poids" placeholder="Votre poids actuel" data-rule="taille" data-msg="S'il vous plait entrez un poids valide">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="number" class="form-control" name="poids" id="poids" placeholder="Le poids que voulez gagner" data-rule="poids">
+              <input type="number" class="form-control" name="newPoids" id="poids" placeholder="Votre nouveau poids" data-rule="poids">
               <div class="validate"></div>
             </div>
             <label for="poids">
               <div class="col-md-4 form-group mt-3 mt-md-0"></div>
-              <input type="number" class="form-control" name="poids" id="poids" placeholder="Le poids que vous voulez perdre" data-rule="poids">
               <div class="validate"></div>
             </label>
           </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <label for="date">Durée du régime :</label>
-              <input type="number" name="date" id="date" placeholder="Fixez le nombre de jour" data-rule="minlen:4">
-              <div class="validate"></div>
-            </div>
+          <div class="text-center">
+            <input type="submit" value="Valider" class="btn btn-primary">
           </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Envoyer</button></div>
         </form>
 
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>"Régime-Santé: Trouvez l'équilibre entre plaisir et bien-être !"</p>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row mt-5">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Andoharanofotsy</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>regime@gmail.com</p>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
+    <section id="contact" class="contact" style="height: 200px;">
+      
     </section>
 
   </main>

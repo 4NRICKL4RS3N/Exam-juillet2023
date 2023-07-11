@@ -5,6 +5,7 @@ class model_regime extends CI_Model
 {
     public function getAllPlat()
     {
+        $this->load->database();
         $sql = "select * from plat";
         $query = $this->db->query($sql);
         $result = $query->result_array();
@@ -13,7 +14,7 @@ class model_regime extends CI_Model
 
     public function getApportParPlat()
     {
-       
+        $this->load->database();
         $sql = "select * from apportPrixParPlat order by apport asc";
         $query = $this->db->query($sql);
         $result = $query->result_array();
@@ -22,7 +23,7 @@ class model_regime extends CI_Model
 
     public function getPlatParType($type)
     {
-        $listPlat = $this->modele_regime->getApportParPlat();
+        $listPlat = $this->model_regime->getApportParPlat();
         $list = array();
         if ($type == "gain") {
             for ($i=0; $i < count($listPlat); $i++) { 
@@ -57,7 +58,7 @@ class model_regime extends CI_Model
 
     // public function platParDuree($duree = null,$type)
     // {
-    //     $listPlat = $this->modele_regime->getPlatParType($type);
+    //     $listPlat = $this->model_regime->getPlatParType($type);
     //     $list = array();
     //     if ($duree != null) {
     //         for ($i=0; $i < $duree; $i++) { 
@@ -74,35 +75,49 @@ class model_regime extends CI_Model
 
     public function getApportSport() 
     {
+        $this->load->database();
         $sql = "select * from sport";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         return $result;
     }
 
-    public function suggestionPlat($type,$poids)
-    {
-        $regime = array();
-        $listPlat = $this->modele_regime->getPlatParType($type);
-        $listSport = $this->modele_regime->getApportSport();
-        $somme = 0;
-        for ($i=0; $i < count($listPlat); $i++) { 
-            if ($somme < $poids) {
-                $somme = $somme + $listPlat[$i]['apport'];
-                $regime[] = $listPlat[$i];
-            }else{
-                return $regime;
-            }
-            for ($i=0; $i < count($listSport); $i++) { 
-                if ($somme < $poids) {
-                    $somme = $somme + $listSport[$i]['apport'];
-                    $regime[] = $listSport[$i];
-                }else{
-                    return $regime;
+    public function getSportParType($type) {
+        $listeSport = $this->model_regime->getApportSport();
+        $list = array();
+        if ($type == "gain") {
+            for ($i=0; $i < count($listeSport); $i++) { 
+                if ($listeSport[$i]['apport'] > 0) {
+                    $list[] = $listeSport[$i];
                 }
             }
         }
-    } 
+        if ($type == "perte") {
+            for ($i=0; $i < count($listeSport); $i++) { 
+                if ($listeSport[$i]['apport'] < 0) {
+                    $list[] = $listeSport[$i];
+                }
+            }
+        }
+        return $list;
+    }
+
+    public function suggestionPlat($type,$poids)
+    {
+        $regime = array();
+        $listPlat = $this->model_regime->getPlatParType($type);
+        $listSport = $this->model_regime->getSportParType($type);
+        if ($poids < 0) {
+            $poids = $poids*(-1);
+        }
+        $total = 0;
+        $i = 0;
+        while ($total < $poids) {
+            
+            $i++;
+        }
+        
+    }
 
 }
 
