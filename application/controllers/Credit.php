@@ -25,6 +25,11 @@ class Credit extends CI_Controller {
             }
         } 
     }
+
+    public function acceptCredit()
+    {
+        
+    }
 }
 
 ?>
