@@ -105,17 +105,38 @@ class model_regime extends CI_Model
     public function suggestionPlat($type,$poids)
     {
         $regime = array();
+        $regime[0] = array();
+        $regime[1] = array();
+
         $listPlat = $this->model_regime->getPlatParType($type);
+        // var_dump($listPlat);
         $listSport = $this->model_regime->getSportParType($type);
+        // var_dump($listSport);
         if ($poids < 0) {
             $poids = $poids*(-1);
         }
+        echo $poids;
         $total = 0;
         $i = 0;
         while ($total < $poids) {
-            
+            $platApport = $listPlat[$i%count($listPlat)]['apport'];
+            if ($listPlat[$i%count($listPlat)]['apport'] < 0) {
+                $platApport = $listPlat[$i%count($listPlat)]['apport']*(-1);
+            }
+            $sportApport = $listSport[$i%count($listSport)]['apport'];
+            if ($listSport[$i%count($listSport)]['apport'] < 0) {
+                $sportApport = $listSport[$i%count($listSport)]['apport']*(-1);
+            }
+            $total = $total + $platApport + $sportApport;
+            $regime[0][] = $listPlat[$i%count($listPlat)];
+            $regime[1][] = $listSport[$i%count($listSport)];
+            // echo "iP=".$i%count($listPlat)."<br>";
+            // echo "iS=".$i%count($listSport)."<br>";
+            var_dump($listPlat[$i%count($listPlat)]);
+            var_dump($listSport[$i%count($listSport)]);
             $i++;
         }
+        echo "total=".$total;
         
     }
 
