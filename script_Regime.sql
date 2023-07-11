@@ -64,10 +64,45 @@ create table constitution_regime
     foreign key (id_Plat) references plat (id_Plat)
 );
 
+create table credit 
+(
+    id_Credit int auto_increment primary key,
+    valeur double
+);
+
+create table gestion_credit
+(
+    id_GC int auto_increment primary key,
+    id_User int,
+    id_Credit int,
+    etat int,
+    foreign key (id_User) references user (id_User),
+    foreign key (id_Credit) references credit (id_Credit)
+);
+
+create table cash
+(
+    id_Cash int auto_increment primary key,
+    id_User int,
+    compte double,
+    foreign key (id_User) references user (id_User) 
+);
+
 insert into user values(null,'Gasy','gasy@gmail.com','1234',1);
 insert into user values(null,'Nandraina','nandraina@gmail.com','1234',1);
 insert into user values(null,'Anrick','anrick@gmail.com','1234',1);
 insert into user values(null,'Paul','paul@gmail.com','0000',0);
+
+insert into credit values(null,5000);
+insert into credit values(null,6000);
+insert into credit values(null,7000);
+insert into credit values(null,8000);
+insert into credit values(null,9000);
+insert into credit values(null,10000);
+insert into credit values(null,12000);
+insert into credit values(null,14000);
+insert into credit values(null,16000);
+insert into credit values(null,20000); 
 
 insert into plat values(null,'Soupe tomate');
 insert into plat values(null,'Salade de pate');
