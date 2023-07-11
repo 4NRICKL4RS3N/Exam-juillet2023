@@ -9,7 +9,7 @@ class Suggestion extends CI_Controller {
         echo $age = $this->input->post('age');
         echo $poids_actuel = $this->input->post('poids');
         echo $poids_new = $this->input->post('newPoids');
-        echo $diff = $poids_new-$poids_actuel;
+        echo $diff = ($poids_new-$poids_actuel)*1000;
         var_dump($this->model_regime->suggestionPlat($type, $diff));
     }
 
